@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE generatorConfiguration  
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"  
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">  
+  
+<generatorConfiguration>  
+  
+  <context id="DB2Tables" targetRuntime="MyBatis3">  
+      
+    <!-- 配置生成的文件都没有注释 -->  
+    <commentGenerator>  
+        <property name="suppressAllComments" value="true" />  
+    </commentGenerator>  
+    <!-- 配置数据源 -->  
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"  
+        connectionURL="jdbc:mysql://localhost:3306/userdb?characterEncoding=utf8"  
+        userId="root"  
+        password="123456">  
+    </jdbcConnection>  
+
+    <javaTypeResolver>  
+      <property name="forceBigDecimals" value="false" />  
+    </javaTypeResolver>  
+      
+    <!-- 配置javaBean生成的位置-->  
+    <javaModelGenerator targetPackage="com.an.crud.bean" targetProject=".\src\main\java">  
+      <property name="enableSubPackages" value="true" />  
+      <property name="trimStrings" value="true" />  
+    </javaModelGenerator>  
+  
+    <!-- 配置sql映射文件生成的位置mapper -->  
+    <sqlMapGenerator targetPackage="mapper"  targetProject=".\src\main\resources">  
+      <property name="enableSubPackages" value="true" />  
+    </sqlMapGenerator>  
+      
+    <!-- 配置指定mapper接口生成的位置 -->  
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.an.crud.mapper"  targetProject=".\src\main\java">  
+      <property name="enableSubPackages" value="true" />  
+    </javaClientGenerator>  
+  
+    <!-- table指定每个表的生成策略 -->  
+    <!-- tableName:对应的表      domainObjectName:生成的bean实例对象 -->  
+    <table tableName="classInfo" domainObjectName="ClassInfo"></table>  
+    <table tableName="stuInfo" domainObjectName="StuInfo"></table>  
+  </context>  
+</generatorConfiguration>  

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.weina.dao.IClassInfoDao" >
+  <resultMap id="ClassInfoMap" type="ClassInfo">
+    <id column="cid" property="cid" jdbcType="INTEGER" />
+    <!-- column是数据库名 -->
+    <result column="cname" property="cname" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <select id="queryAllClassByPage" resultType="ClassInfo">
+  	select * from classInfo where cname like concat('%',#{2},concat('%')) limit  #{0},#{1} 
+  </select>
+  
+  <select id="queryCount" resultType="int">
+  	select COUNT(*) from classInfo where cname like concat('%',#{0},concat('%'))
+  </select>
+  
+  <delete id="delClaInt" parameterType="int">
+  	delete from classInfo where cid=#{cid};
+  </delete>
+</mapper>
