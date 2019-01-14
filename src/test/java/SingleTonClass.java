@@ -2,9 +2,9 @@
 /**
  * 单例模式 练习
  * @author ZXL
- *懒汉
+ * 懒汉
  */
-public class SingleTonClass {
+/*public class SingleTonClass {
 	
 	private static SingleTonClass instance = null;
 	public static synchronized SingleTonClass getInstance(){
@@ -17,4 +17,9 @@ public class SingleTonClass {
 		//dosomething
 		
 	}
+}
+*/
+
+public class SingleTonClass {
+	
 }
